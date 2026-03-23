@@ -5,13 +5,13 @@
     "description": "Arithmetics over HTTP!",
     "version": "1.0"
   },
-  "host": "calcapi.cloudapp.net",
+  "host": "https://fastapi-calculadora.onrender.com/",
   "basePath": "/api",
   "schemes": [
     "http"
   ],
   "paths": {
-    "/add": {
+    "/calculo-basico/sumar/": {
       "get": {
         "description": "Responds with a sum of two numbers.",
         "operationId": "Add two integers",
@@ -40,7 +40,7 @@
         }
       }
     },
-    "/sub": {
+    "/calculo-basico/restar/": {
       "get": {
         "description": "Responds with a difference between two numbers.",
         "operationId": "Subtract two integers",
@@ -69,7 +69,7 @@
         }
       }
     },
-    "/div": {
+    "/calculo-basico/dividir/": {
       "get": {
         "description": "Responds with a quotient of two numbers.",
         "operationId": "Divide two integers",
@@ -98,7 +98,7 @@
         }
       }
     },
-    "/mul": {
+    "/calculo-basico/multiplicar/": {
       "get": {
         "description": "Responds with a product of two numbers.",
         "operationId": "Multiply two integers",
