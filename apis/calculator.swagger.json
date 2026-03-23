@@ -5,7 +5,7 @@
     "description": "Arithmetics over HTTP!",
     "version": "1.0"
   },
-  "host": "https://fastapi-calculadora.onrender.com/",
+  "host": "fastapi-calculadora.onrender.com",
   "basePath": "/api",
   "schemes": [
     "http"
