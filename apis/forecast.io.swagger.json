@@ -6,7 +6,7 @@
     "version": "1.0"
   },
   "host": "api.forecast.io",
-  "basePath": "",
+  "basePath": "/",
   "schemes": [
     "https"
   ],
