@@ -1,4 +1,4 @@
-﻿{
+{
   "swagger": "2.0",
   "info": {
     "title": "Forecast API",
@@ -10,11 +10,14 @@
   "schemes": [
     "https"
   ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/forecast/{apiKey}/{latitude},{longitude}": {
       "get": {
         "description": "Get forecast for a geographical location specified by its latitude and longitude.",
-        "operationId": "Forecast",
+        "operationId": "getForecast",
         "parameters": [
           {
             "name": "apiKey",
@@ -28,39 +31,55 @@
             "in": "path",
             "description": "Requested latitude.",
             "required": true,
-            "type": "string",
-            "default": 41.8369,
-            "enum": [41.8369]
+            "type": "number",
+            "default": 41.8369
           },
           {
             "name": "longitude",
             "in": "path",
             "description": "Requested longitude.",
             "required": true,
-            "type": "string",
-            "default": -87.6847,
-            "enum": [-87.6847]
+            "type": "number",
+            "default": -87.6847
           },
           {
             "name": "units",
             "in": "query",
-            "description": "Use units other than the default Imperial units in the response. Possible values are <code>us</code> (default), <code>si</code>, <code>uk</code>, <code>ca</code>",
+            "description": "Use units other than the default Imperial units. Values: us, si, uk, ca.",
             "type": "string",
             "default": "us",
-            "enum": ["us", "si", "uk", "ci"]
+            "enum": [
+              "us",
+              "si",
+              "uk",
+              "ca"
+            ]
           },
           {
             "name": "exclude",
             "in": "query",
-            "description": "Exclude specified data blocks from the API response. Block names should be provided as a comma-delimeted list. Allowed values are <code>currently</code>, <code>minutely</code>, <code>hourly</code>, <code>daily</code>, <code>alerts</code>, <code>flags</code>",
+            "description": "Exclude specified data blocks (comma-delimited). Values: currently, minutely, hourly, daily, alerts, flags.",
             "type": "string",
-            "default": "minutely,hourly,daily,flags,alerts",
-            "enum": [
-              "minutely,hourly,daily,flags,alerts"
-            ]
+            "default": "minutely,hourly,daily,flags,alerts"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "Successful forecast response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "latitude": { "type": "number" },
+                "longitude": { "type": "number" },
+                "timezone": { "type": "string" },
+                "currently": { "type": "object" }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid API Key"
+          }
+        }
       }
     }
   }
