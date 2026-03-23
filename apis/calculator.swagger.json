@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Calculator",
-    "description": "Arithemtics over HTTP!",
+    "description": "Arithmetics over HTTP!",
     "version": "1.0"
   },
   "host": "calcapi.cloudapp.net",
@@ -11,7 +11,7 @@
     "http"
   ],
   "paths": {
-    "/add?a={a}&b={b}": {
+    "/add": {
       "get": {
         "description": "Responds with a sum of two numbers.",
         "operationId": "Add two integers",
@@ -19,28 +19,28 @@
           {
             "name": "a",
             "in": "query",
-            "description": "First operand. Default value is <code>51</code>.",
+            "description": "First operand.",
             "required": true,
-            "default": "51",
-            "enum": [
-              "51"
-            ]
+            "type": "integer",
+            "default": 51
           },
           {
             "name": "b",
             "in": "query",
-            "description": "Second operand. Default value is <code>49</code>.",
+            "description": "Second operand.",
             "required": true,
-            "default": "49",
-            "enum": [
-              "49"
-            ]
+            "type": "integer",
+            "default": 49
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "Returns the sum"
+          }
+        }
       }
     },
-    "/sub?a={a}&b={b}": {
+    "/sub": {
       "get": {
         "description": "Responds with a difference between two numbers.",
         "operationId": "Subtract two integers",
@@ -48,28 +48,28 @@
           {
             "name": "a",
             "in": "query",
-            "description": "First operand. Default value is <code>100</code>.",
+            "description": "First operand.",
             "required": true,
-            "default": "100",
-            "enum": [
-              "100"
-            ]
+            "type": "integer",
+            "default": 100
           },
           {
             "name": "b",
             "in": "query",
-            "description": "Second operand. Default value is <code>50</code>.",
+            "description": "Second operand.",
             "required": true,
-            "default": "50",
-            "enum": [
-              "50"
-            ]
+            "type": "integer",
+            "default": 50
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "Returns the difference"
+          }
+        }
       }
     },
-    "/div?a={a}&b={b}": {
+    "/div": {
       "get": {
         "description": "Responds with a quotient of two numbers.",
         "operationId": "Divide two integers",
@@ -77,28 +77,28 @@
           {
             "name": "a",
             "in": "query",
-            "description": "First operand. Default value is <code>100</code>.",
+            "description": "First operand.",
             "required": true,
-            "default": "100",
-            "enum": [
-              "100"
-            ]
+            "type": "integer",
+            "default": 100
           },
           {
             "name": "b",
             "in": "query",
-            "description": "Second operand. Default value is <code>20</code>.",
+            "description": "Second operand.",
             "required": true,
-            "default": "20",
-            "enum": [
-              "20"
-            ]
+            "type": "integer",
+            "default": 20
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "Returns the quotient"
+          }
+        }
       }
     },
-    "/mul?a={a}&b={b}": {
+    "/mul": {
       "get": {
         "description": "Responds with a product of two numbers.",
         "operationId": "Multiply two integers",
@@ -106,25 +106,25 @@
           {
             "name": "a",
             "in": "query",
-            "description": "First operand. Default value is <code>20</code>.",
+            "description": "First operand.",
             "required": true,
-            "default": "20",
-            "enum": [
-              "20"
-            ]
+            "type": "integer",
+            "default": 20
           },
           {
             "name": "b",
             "in": "query",
-            "description": "Second operand. Default value is <code>5</code>.",
+            "description": "Second operand.",
             "required": true,
-            "default": "5",
-            "enum": [
-              "5"
-            ]
+            "type": "integer",
+            "default": 5
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "Returns the product"
+          }
+        }
       }
     }
   }
