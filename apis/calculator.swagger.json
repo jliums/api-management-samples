@@ -6,13 +6,9 @@
     "version": "1.0"
   },
   "host": "fastapi-calculadora.onrender.com",
-  "basePath": "/api",
+  "basePath": "/",
   "schemes": [
-    "http",
     "https"
-  ],
-  "consumes": [
-    "application/json"
   ],
   "produces": [
     "application/json"
@@ -20,129 +16,108 @@
   "paths": {
     "/calculo-basico/sumar/": {
       "get": {
-        "tags": ["Basic Arithmetic"],
         "description": "Responds with the sum of two numbers.",
-        "operationId": "addIntegers",
+        "operationId": "sumar",
         "parameters": [
           {
-            "name": "a",
+            "name": "num1",
             "in": "query",
-            "description": "First operand.",
             "required": true,
             "type": "integer",
-            "default": 51
+            "default": 5
           },
           {
-            "name": "b",
+            "name": "num2",
             "in": "query",
-            "description": "Second operand.",
             "required": true,
             "type": "integer",
-            "default": 49
+            "default": 3
           }
         ],
         "responses": {
           "200": {
-            "description": "Returns the sum",
-            "schema": {
-              "type": "integer"
-            }
+            "description": "Successful operation"
           }
         }
       }
     },
     "/calculo-basico/restar/": {
       "get": {
-        "tags": ["Basic Arithmetic"],
         "description": "Responds with the difference between two numbers.",
-        "operationId": "subtractIntegers",
+        "operationId": "restar",
         "parameters": [
           {
-            "name": "a",
+            "name": "num1",
             "in": "query",
             "required": true,
             "type": "integer",
-            "default": 100
+            "default": 7
           },
           {
-            "name": "b",
+            "name": "num2",
             "in": "query",
             "required": true,
             "type": "integer",
-            "default": 50
+            "default": 2
           }
         ],
         "responses": {
           "200": {
-            "description": "Returns the difference",
-            "schema": {
-              "type": "integer"
-            }
+            "description": "Successful operation"
           }
         }
       }
     },
     "/calculo-basico/dividir/": {
       "get": {
-        "tags": ["Basic Arithmetic"],
         "description": "Responds with the quotient of two numbers.",
-        "operationId": "divideIntegers",
+        "operationId": "dividir",
         "parameters": [
           {
-            "name": "a",
+            "name": "num1",
             "in": "query",
             "required": true,
             "type": "integer",
-            "default": 100
+            "default": 10
           },
           {
-            "name": "b",
+            "name": "num2",
             "in": "query",
             "required": true,
             "type": "integer",
-            "default": 20
+            "default": 2
           }
         ],
         "responses": {
           "200": {
-            "description": "Returns the quotient",
-            "schema": {
-              "type": "number"
-            }
-          },
-          "400": {
-            "description": "Division by zero error"
+            "description": "Successful operation"
           }
         }
       }
     },
     "/calculo-basico/multiplicar/": {
       "get": {
-        "tags": ["Basic Arithmetic"],
         "description": "Responds with the product of two numbers.",
-        "operationId": "multiplyIntegers",
+        "operationId": "multiplicar",
         "parameters": [
           {
-            "name": "a",
+            "name": "num1",
             "in": "query",
             "required": true,
             "type": "integer",
-            "default": 20
+            "default": 4
           },
           {
-            "name": "b",
+            "name": "num2",
             "in": "query",
             "required": true,
             "type": "integer",
-            "default": 5
+            "default": 6
           }
         ],
         "responses": {
           "200": {
-            "description": "Returns the product",
-            "schema": {
-              "type": "integer"
-            }
+            "description": "Successful operation"
           }
         }
       }
