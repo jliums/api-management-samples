@@ -5,7 +5,7 @@
         "description": "API Management facade for a very handy and free online HTTP tool.",
         "version": "1.0"
     },
-    "host": "httpbin",
+    "host": "httpbin.org",
     "basePath": "/",
     "schemes": [
         "http",
@@ -28,7 +28,7 @@
                     "default": 200
                 }],
                 "responses": {
-                    "200": { "description": "Returns the requested status code." }
+                    "200": { "description": "Successful request" }
                 }
             }
         },
@@ -37,7 +37,7 @@
                 "description": "Returns GET data.",
                 "operationId": "getBasicData",
                 "responses": {
-                    "200": { "description": "Successful request." }
+                    "200": { "description": "Successful request" }
                 }
             }
         },
@@ -46,16 +46,52 @@
                 "description": "Returns POST data.",
                 "operationId": "postData",
                 "responses": {
-                    "200": { "description": "Successful request." }
+                    "200": { "description": "Successful request" }
+                }
+            }
+        },
+        "/patch": {
+            "patch": {
+                "description": "Returns PATCH data.",
+                "operationId": "patchData",
+                "responses": {
+                    "200": { "description": "Successful request" }
+                }
+            }
+        },
+        "/put": {
+            "put": {
+                "description": "Returns PUT data.",
+                "operationId": "putData",
+                "responses": {
+                    "200": { "description": "Successful request" }
+                }
+            }
+        },
+        "/delete": {
+            "delete": {
+                "description": "Returns DELETE data.",
+                "operationId": "deleteData",
+                "responses": {
+                    "200": { "description": "Successful request" }
+                }
+            }
+        },
+        "/xml": {
+            "get": {
+                "description": "Returns some XML.",
+                "operationId": "getXml",
+                "responses": {
+                    "200": { "description": "Returns XML data" }
                 }
             }
         },
         "/ip": {
             "get": {
                 "description": "Returns origin IP.",
-                "operationId": "getOriginIp",
+                "operationId": "getIp",
                 "responses": {
-                    "200": { "description": "Returns a JSON object with the 'origin' IP address." }
+                    "200": { "description": "Returns the origin IP address" }
                 }
             }
         },
@@ -64,56 +100,132 @@
                 "description": "Returns user agent string.",
                 "operationId": "getUserAgent",
                 "responses": {
-                    "200": { "description": "Returns the user-agent header." }
+                    "200": { "description": "Returns user-agent header" }
                 }
             }
         },
         "/headers": {
             "get": {
                 "description": "Returns headers dictionary.",
-                "operationId": "getRequestHeaders",
+                "operationId": "getHeaders",
                 "responses": {
-                    "200": { "description": "Returns the header dictionary." }
+                    "200": { "description": "Returns header dictionary" }
                 }
             }
         },
         "/delay/{seconds}": {
             "get": {
-                "description": "Delays responding for n seconds (max 10).",
+                "description": "Delays responding for n seconds.",
                 "operationId": "delayResponse",
                 "parameters": [{
                     "name": "seconds",
                     "in": "path",
-                    "description": "The amount of time to delay.",
                     "required": true,
                     "type": "integer",
                     "default": 2
                 }],
                 "responses": {
-                    "200": { "description": "Successful delayed response." }
+                    "200": { "description": "Successful delayed response" }
                 }
             }
         },
         "/cache/{maxAge}": {
             "get": {
-                "operationId": "setCacheControl",
+                "operationId": "getCache",
                 "description": "Sets a Cache-Control header for n seconds.",
                 "parameters": [{
                     "name": "maxAge",
                     "in": "path",
-                    "description": "Max age value.",
                     "required": true,
                     "type": "integer",
                     "default": 10
                 }],
                 "responses": {
-                    "200": { "description": "Cache-Control set successfully." }
+                    "200": { "description": "Successful request" }
                 }
             }
         },
         "/uuid": {
             "get": {
                 "operationId": "getUuid",
-                "description": "Returns a UUID4.",
+                "description": "Returns UUID4.",
                 "responses": {
-                    "200": { "description": "Returns a JSON object with a 'uuid' field."
+                    "200": { "description": "Returns a UUID object" }
+                }
+            }
+        },
+        "/anything": {
+            "get": {
+                "operationId": "getAnything",
+                "description": "Returns request data, including method used.",
+                "responses": {
+                    "200": { "description": "Returns request data" }
+                }
+            }
+        },
+        "/base64/{value}": {
+            "get": {
+                "operationId": "decodeBase64",
+                "description": "Decodes base64url-encoded string.",
+                "parameters": [{
+                    "name": "value",
+                    "in": "path",
+                    "required": true,
+                    "type": "string",
+                    "default": "aGVsbG8gd29ybGQNCg=="
+                }],
+                "responses": {
+                    "200": { "description": "Decoded data" }
+                }
+            }
+        },
+        "/bytes/{number}": {
+            "get": {
+                "operationId": "getRandomBytes",
+                "description": "Generates n random bytes of binary data",
+                "parameters": [{
+                    "name": "number",
+                    "in": "path",
+                    "required": true,
+                    "type": "integer",
+                    "default": 1024
+                }],
+                "responses": {
+                    "200": { "description": "Binary data stream" }
+                }
+            }
+        },
+        "/redirect-to": {
+            "get": {
+                "operationId": "redirectTo",
+                "description": "302 redirects to a URL provided in query",
+                "parameters": [{
+                    "name": "url",
+                    "in": "query",
+                    "required": true,
+                    "type": "string",
+                    "default": "http://example.com"
+                }],
+                "responses": {
+                    "302": { "description": "Redirecting..." }
+                }
+            }
+        },
+        "/stream/{number}": {
+            "get": {
+                "operationId": "getStream",
+                "description": "Streams lines of data.",
+                "parameters": [{
+                    "name": "number",
+                    "in": "path",
+                    "required": true,
+                    "type": "integer",
+                    "default": 10
+                }],
+                "responses": {
+                    "200": { "description": "Streamed data" }
+                }
+            }
+        }
+    }
+}
