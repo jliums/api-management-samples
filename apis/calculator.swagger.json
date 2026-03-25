@@ -17,21 +17,27 @@
     "/calculo-basico/sumar/": {
       "get": {
         "description": "Responds with the sum of two numbers.",
-        "operationId": "sumar",
+        "operationId": "Add two integers",
         "parameters": [
           {
             "name": "num1",
             "in": "query",
+            "description": "First operand. Default value is <code>51</code>.",
             "required": true,
-            "type": "integer",
-            "default": 5
+            "default": "51",
+            "enum":[
+              "51"
+            ]
           },
           {
             "name": "num2",
             "in": "query",
+            "description": "Second operand. Default value is <code>49</code>.",
             "required": true,
-            "type": "integer",
-            "default": 3
+            "default": "49",
+            "enum": [
+              "49"
+            ]
           }
         ],
         "responses": {
@@ -44,7 +50,7 @@
     "/calculo-basico/restar/": {
       "get": {
         "description": "Responds with the difference between two numbers.",
-        "operationId": "restar",
+        "operationId": "Subtract two integers",
         "parameters": [
           {
             "name": "num1",
@@ -71,7 +77,7 @@
     "/calculo-basico/dividir/": {
       "get": {
         "description": "Responds with the quotient of two numbers.",
-        "operationId": "dividir",
+        "operationId": "Divide two integers",
         "parameters": [
           {
             "name": "num1",
@@ -98,7 +104,7 @@
     "/calculo-basico/multiplicar/": {
       "get": {
         "description": "Responds with the product of two numbers.",
-        "operationId": "multiplicar",
+        "operationId": "Multiply two integers",
         "parameters": [
           {
             "name": "num1",
