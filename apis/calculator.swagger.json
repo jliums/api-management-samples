@@ -11,7 +11,7 @@
     "https"
   ],
   "produces": [
-    "application/json"
+    "application/xml"
   ],
   "paths": {
     "/sumar/": {
