@@ -24,20 +24,14 @@
             "in": "query",
             "description": "First operand. Default value is <code>51</code>.",
             "required": true,
-            "default": "51",
-            "enum":[
-              "51"
-            ]
+            "default": "51"
           },
           {
             "name": "num2",
             "in": "query",
             "description": "Second operand. Default value is <code>49</code>.",
             "required": true,
-            "default": "49",
-            "enum": [
-              "49"
-            ]
+            "default": "49"
           }
         ],
         "responses": {
