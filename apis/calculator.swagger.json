@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Calculator",
+    "title": "Basic Calculator",
     "description": "Arithmetic operations over HTTP!",
     "version": "1.0"
   },
   "host": "fastapi-calculadora.onrender.com",
-  "basePath": "/",
+  "basePath": "/calculo-basico",
   "schemes": [
     "https"
   ],
@@ -14,7 +14,7 @@
     "application/json"
   ],
   "paths": {
-    "/calculo-basico/sumar/": {
+    "/sumar/": {
       "get": {
         "description": "Responds with the sum of two numbers.",
         "operationId": "Add two integers",
@@ -43,7 +43,7 @@
         }
       }
     },
-    "/calculo-basico/restar/": {
+    "/restar/": {
       "get": {
         "description": "Responds with the difference between two numbers.",
         "operationId": "Subtract two integers",
@@ -51,16 +51,18 @@
           {
             "name": "num1",
             "in": "query",
+            "description": "First operand. Default value is <code>100</code>.",
             "required": true,
             "type": "integer",
-            "default": 7
+            "default": 100
           },
           {
             "name": "num2",
             "in": "query",
+            "description": "Second operand. Default value is <code>50</code>.",
             "required": true,
             "type": "integer",
-            "default": 2
+            "default": 50
           }
         ],
         "responses": {
@@ -70,7 +72,7 @@
         }
       }
     },
-    "/calculo-basico/dividir/": {
+    "/dividir/": {
       "get": {
         "description": "Responds with the quotient of two numbers.",
         "operationId": "Divide two integers",
@@ -78,16 +80,18 @@
           {
             "name": "num1",
             "in": "query",
+            "description": "First operand. Default value is <code>100</code>.",
             "required": true,
             "type": "integer",
-            "default": 10
+            "default": 100
           },
           {
             "name": "num2",
             "in": "query",
+            "description": "Second operand. Default value is <code>20</code>.",
             "required": true,
             "type": "integer",
-            "default": 2
+            "default": 20
           }
         ],
         "responses": {
@@ -97,7 +101,7 @@
         }
       }
     },
-    "/calculo-basico/multiplicar/": {
+    "/multiplicar/": {
       "get": {
         "description": "Responds with the product of two numbers.",
         "operationId": "Multiply two integers",
@@ -105,16 +109,18 @@
           {
             "name": "num1",
             "in": "query",
+            "description": "First operand. Default value is <code>20</code>.",
             "required": true,
             "type": "integer",
-            "default": 4
+            "default": 20
           },
           {
             "name": "num2",
             "in": "query",
+            "description": "Second operand. Default value is <code>5</code>.",
             "required": true,
             "type": "integer",
-            "default": 6
+            "default": 5
           }
         ],
         "responses": {
