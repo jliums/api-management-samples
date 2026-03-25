@@ -24,6 +24,7 @@
             "in": "query",
             "description": "First operand. Default value is <code>51</code>.",
             "required": true,
+            "type": "integer",
             "default": 51
           },
           {
@@ -31,6 +32,7 @@
             "in": "query",
             "description": "Second operand. Default value is <code>49</code>.",
             "required": true,
+            "type": "integer",
             "default": 49
           }
         ],
