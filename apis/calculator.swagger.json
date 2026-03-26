@@ -19,114 +19,33 @@
         "description": "Responds with the sum of two numbers.",
         "operationId": "Add two integers",
         "parameters": [
-          {
-            "name": "num1",
-            "in": "query",
-            "description": "First operand. Default value is <code>51</code>.",
-            "required": true,
-            "type": "integer",
-            "default": 51
-          },
-          {
-            "name": "num2",
-            "in": "query",
-            "description": "Second operand. Default value is <code>49</code>.",
-            "required": true,
-            "type": "integer",
-            "default": 49
-          }
+          { "name": "num1", "in": "query", "required": true, "type": "integer", "default": 51 },
+          { "name": "num2", "in": "query", "required": true, "type": "integer", "default": 49 }
         ],
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/CalculationResult"
+            },
+            "examples": {
+              "application/xml": "<CalculationResult><result>100</result></CalculationResult>"
+            }
           }
         }
       }
-    },
-    "/restar/": {
-      "get": {
-        "description": "Responds with the difference between two numbers.",
-        "operationId": "Subtract two integers",
-        "parameters": [
-          {
-            "name": "num1",
-            "in": "query",
-            "description": "First operand. Default value is <code>100</code>.",
-            "required": true,
-            "type": "integer",
-            "default": 100
-          },
-          {
-            "name": "num2",
-            "in": "query",
-            "description": "Second operand. Default value is <code>50</code>.",
-            "required": true,
-            "type": "integer",
-            "default": 50
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation"
-          }
-        }
-      }
-    },
-    "/dividir/": {
-      "get": {
-        "description": "Responds with the quotient of two numbers.",
-        "operationId": "Divide two integers",
-        "parameters": [
-          {
-            "name": "num1",
-            "in": "query",
-            "description": "First operand. Default value is <code>100</code>.",
-            "required": true,
-            "type": "integer",
-            "default": 100
-          },
-          {
-            "name": "num2",
-            "in": "query",
-            "description": "Second operand. Default value is <code>20</code>.",
-            "required": true,
-            "type": "integer",
-            "default": 20
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation"
-          }
-        }
-      }
-    },
-    "/multiplicar/": {
-      "get": {
-        "description": "Responds with the product of two numbers.",
-        "operationId": "Multiply two integers",
-        "parameters": [
-          {
-            "name": "num1",
-            "in": "query",
-            "description": "First operand. Default value is <code>20</code>.",
-            "required": true,
-            "type": "integer",
-            "default": 20
-          },
-          {
-            "name": "num2",
-            "in": "query",
-            "description": "Second operand. Default value is <code>5</code>.",
-            "required": true,
-            "type": "integer",
-            "default": 5
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation"
-          }
+    }
+  },
+  "definitions": {
+    "CalculationResult": {
+      "type": "object",
+      "xml": {
+        "name": "CalculationResult"
+      },
+      "properties": {
+        "result": {
+          "type": "integer",
+          "example": 100
         }
       }
     }
